@@ -1,1 +1,27 @@
-<h1>Put posts here!</h1>
+<div ng-repeat="post in vm.posts" class='post'>
+  <img ng-src="{{ post.image }}" class='post'>
+  <h3 class='title'>{{ post.title }} |
+    <span class="glyphicon glyphicon-arrow-up" ng-click="upVote(post.id)"></span>
+    <span class="glyphicon glyphicon-arrow-down" ng-click="downVote(post.id)"></span>
+    <span ng-bind="post.score" ng-class="{positive: post.score > 0, negative: post.score < 0}"></span>
+  </h3>
+  <p class='author'>By {{ post.author }}</p>
+  <p class='description'>{{ post.description }}</p>
+  <p>
+    <span class="glyphicon glyphicon-calendar"></span>
+    {{ post.date | date }}  |
+    <span class="glyphicon glyphicon-comment"></span>
+    <a ng-click="showComments()">
+      {{ post.comments.length }}
+      <ng-pluralize
+        count="post.comments.length"
+        when="{
+          '1': 'Comment',
+          'other': 'Comments'
+        }">
+      </ng-pluralize>
+    </a> |
+    <span class="glyphicon glyphicon-pencil"></span>
+    <a>Add Comment</a>
+  </p>
+</div>
