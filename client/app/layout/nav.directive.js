@@ -16,14 +16,29 @@
 
   function controller($http, $scope, postsService) {
       var vm = this;
-      // vm.addPost = addPost;
+
       $scope.newPost = {};
       $scope.addPost = addPost;
+      $scope.sortBy = sortBy;
+      $scope.nav = {};
+      $scope.nav.sorter = "score";
+      $scope.nav.reverse = true;
 
       function addPost(newPost) {
         postsService.add(newPost);
         $scope.newPost = {};
       }
+
+      function sortBy(sorter) {
+        if (sorter == "title") {
+          $scope.nav.reverse = false;
+        }
+        if (sorter == "score") {
+          $scope.nav.reverse = true;
+        }
+        return $scope.nav.sorter = sorter;
+      };
+
     }
 
 }());
