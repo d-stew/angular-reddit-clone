@@ -1,3 +1,4 @@
+<!-- NAVBAR -->
 <navbar>
   <div class="container-fluid">
     <div class="navbar-header">
@@ -26,3 +27,35 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </navbar>
+
+<!-- MODAL -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">New Post</h4>
+      </div>
+      <div class="modal-body">
+        <form ng-submit="addPost(newPost)">
+              <label class="center-block" for="title">Title</label>
+              <input class="form-control" type="text" name="title" ng-model="newPost.title"></input>
+
+              <label class="center-block" for="author">Author</label>
+              <input class="form-control" type="text" name="author" ng-model="newPost.author"></input>
+
+              <label class="center-block" for="image">Image URL</label>
+              <input class="form-control" type="text" name="image" ng-model="newPost.image"></input>
+
+              <label class="center-block" for="description">Description</label>
+              <input class="form-control" type="text" name="description" ng-model="newPost.description"></input>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Submit Post</button>
+            </div>
+        </form>
+        <p ng-bind="vm.newPost"></p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,19 +1,19 @@
-angular.module('app')
-  .directive('modal', function(postsService) {
-    console.log("Modal directive called");
-    return {
-      restrict: "E",
-      templateUrl: "/app/layout/newpost.directive.html",
-      scope: {},
-      link: function(scope,element,attrs) {
-        scope.vm = {};
-        scope.addPost = function() {
-          postsService.add();
-        }
-
-      }
-    }
-  })
+// angular.module('app')
+//   .directive('modal', function(postsService) {
+//     console.log("Modal directive called");
+//     return {
+//       restrict: "E",
+//       templateUrl: "/app/layout/newpost.directive.html",
+//       scope: {},
+//       link: function(scope,element,attrs) {
+//         scope.vm = {};
+//         scope.addPost = function() {
+//           postsService.add();
+//         }
+//
+//       }
+//     }
+//   })
 
   // (function() {
   //   'use strict';
@@ -34,12 +34,12 @@ angular.module('app')
   //
   //   function controller(postsService) {
   //     console.log('New post directive called');
-      // var vm = this;
-      // vm.addPost = addPost;
-      //
-      // function addPost() {
-      //   postsService.add();
-      // }
+  //     var vm = this;
+  //     vm.addPost = addPost;
+  //
+  //     function addPost() {
+  //       postsService.add();
+  //     }
   //   }
   //
   // }());
