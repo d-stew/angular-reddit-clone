@@ -16,7 +16,6 @@
   controller.$inject = ['$http', 'postsService'];
 
   function controller($http, postsService) {
-    console.log('Posts directive called');
     var vm = this;
     vm.addPost = addPost;
     activate();

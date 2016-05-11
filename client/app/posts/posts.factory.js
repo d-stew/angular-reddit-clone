@@ -35,7 +35,7 @@
         })
         .then(function(response){
           posts.push(response.data);
-          // $scope.posts.push(response.data);
+          vm.posts.push(response.data);
         })
       }
     }

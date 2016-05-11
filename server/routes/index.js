@@ -17,7 +17,8 @@ router.post('/api/v1/posts', function(req, res, next) {
     description: req.body.description
   }
   knex('posts').insert(data).returning('*').then(function(posts){
-    res.json(posts);
+    console.log(posts);
+    res.json(posts[0]);
   })
 });
 
