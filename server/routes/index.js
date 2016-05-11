@@ -11,14 +11,13 @@ router.get('/api/v1/posts', function(req, res, next) {
 
 router.post('/api/v1/posts', function(req, res, next) {
   var data = {
-    id: req.body.id,
     title: req.body.title,
     author: req.body.author,
     image: req.body.image,
     description: req.body.description
   }
   knex('posts').insert(data).returning('*').then(function(posts){
-    res.json(posts[0]);
+    res.json(posts);
   })
 });
 

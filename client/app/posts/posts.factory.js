@@ -28,7 +28,6 @@
         console.log(newPost);
         console.log("Adding post!");
         return $http.post('http://localhost:3000/api/v1/posts', {
-          id: (posts.length + 1),
           title: newPost.title,
           author: newPost.author,
           image: newPost.image,
@@ -36,7 +35,7 @@
         })
         .then(function(response){
           posts.push(response.data);
-          $scope.posts.push(response.data);
+          // $scope.posts.push(response.data);
         })
       }
     }
