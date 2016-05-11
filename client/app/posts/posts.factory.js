@@ -15,18 +15,18 @@
         list: listPosts
       }
 
-    function listPosts() {
-      var factory = this;
-      return $http.get('http://localhost:3000/api/v1/posts')
-      .then(function(response) {
-        factory.posts = response.data;
-        return factory.posts;
-      })
-    }
+      function listPosts() {
+        var factory = this;
+        return $http.get('http://localhost:3000/api/v1/posts')
+        .then(function(response) {
+          factory.posts = response.data;
+          return factory.posts;
+        })
+      }
 
-    function addPost() {
-      console.log("Adding post!");
-    }
+      function addPost() {
+        console.log("Adding post!");
+      }
 
     }
 

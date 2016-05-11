@@ -1,4 +1,4 @@
-<div ng-repeat="post in vm.posts" class='post'>
+<div ng-repeat="post in vm.posts | orderBy : view.sorter : view.reverse | filter : search" class='post'>
   <img ng-src="{{ post.image }}" class='post'>
   <h3 class='title'>{{ post.title }} |
     <span class="glyphicon glyphicon-arrow-up" ng-click="upVote(post.id)"></span>
