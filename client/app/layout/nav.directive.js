@@ -16,13 +16,13 @@
 
   function controller($http, $scope, postsService) {
       var vm = this;
-
       $scope.newPost = {};
-      $scope.addPost = addPost;
-      $scope.sortBy = sortBy;
       $scope.nav = {};
       $scope.nav.sorter = "score";
       $scope.nav.reverse = true;
+      
+      $scope.addPost = addPost;
+      $scope.sortBy = sortBy;
 
       function addPost(newPost) {
         postsService.add(newPost);
