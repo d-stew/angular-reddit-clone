@@ -18,6 +18,9 @@
   function controller($http, postsService) {
     var vm = this;
     vm.addPost = addPost;
+    vm.upVote = upVote;
+    vm.downVote = downVote;
+
     activate();
 
     function activate() {
@@ -29,6 +32,14 @@
 
     function addPost() {
       postsService.add();
+    }
+
+    function upVote(id) {
+      ++vm.posts[id].score
+    }
+
+    function downVote(id) {
+      --vm.posts[id].score
     }
   }
 

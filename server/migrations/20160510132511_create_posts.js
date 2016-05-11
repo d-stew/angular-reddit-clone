@@ -6,6 +6,7 @@ exports.up = function(knex, Promise) {
     table.string('author').notNullable();
     table.string('image');
     table.text('description');
+    table.integer('score').defaultTo(0);
   })
 };
 
