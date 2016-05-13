@@ -22,4 +22,14 @@ router.post('/api/v1/posts', function(req, res, next) {
   })
 });
 
+router.post('/api/v1/posts/upvote', function(req, res, next) {
+  knex('posts')
+  .where({id: req.body.id})
+  .update({score: req.body.score+1})
+  .returning('*')
+  .then(function(post){
+    res.json(post);
+  })
+})
+
 module.exports = router;

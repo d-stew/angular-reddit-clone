@@ -12,7 +12,9 @@
 
       return {
         add: addPost,
-        list: listPosts
+        list: listPosts,
+        upVote: upVote,
+        downVote: downVote
       }
 
       function listPosts() {
@@ -25,8 +27,6 @@
       }
 
       function addPost(newPost) {
-        console.log(newPost);
-        console.log("Adding post!");
         return $http.post('http://localhost:3000/api/v1/posts', {
           title: newPost.title,
           author: newPost.author,
@@ -37,6 +37,21 @@
           posts.push(response.data);
           vm.posts.push(response.data);
         })
+      }
+
+      function upVote(post) {
+        return $http.post('http://localhost:3000/api/v1/posts/upvote', {
+          id: post.id,
+          score: post.score++
+        })
+        // .then(function(response){
+        //   posts.push(response.data);
+        //   console.log(posts);
+        // })
+      }
+
+      function downVote(post) {
+        console.log(post);
       }
     }
 

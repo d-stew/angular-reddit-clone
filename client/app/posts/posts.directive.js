@@ -34,12 +34,12 @@
       postsService.add();
     }
 
-    function upVote(id) {
-      ++vm.posts[id].score
+    function upVote(post) {
+      postsService.upVote(post);
     }
 
-    function downVote(id) {
-      --vm.posts[id].score
+    function downVote(post) {
+      postsService.downVote(post);
     }
   }
 
