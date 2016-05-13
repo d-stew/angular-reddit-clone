@@ -51,7 +51,10 @@
       }
 
       function downVote(post) {
-        console.log(post);
+        return $http.post('http://localhost:3000/api/v1/posts/downvote', {
+          id: post.id,
+          score: post.score--
+        })
       }
     }
 

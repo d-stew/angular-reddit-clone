@@ -30,6 +30,16 @@ router.post('/api/v1/posts/upvote', function(req, res, next) {
   .then(function(post){
     res.json(post);
   })
-})
+});
+
+router.post('/api/v1/posts/downvote', function(req, res, next) {
+  knex('posts')
+  .where({id: req.body.id})
+  .update({score: req.body.score-1})
+  .returning('*')
+  .then(function(post){
+    res.json(post);
+  })
+});
 
 module.exports = router;
