@@ -23,12 +23,13 @@
           </ul>
         </li>
         <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"></span> Submit Post</a></li>
+        <li><a href="#" data-toggle="modal" data-target="#signupModal">Sign Up</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </navbar>
 
-<!-- MODAL -->
+<!-- SUBMIT POST MODAL -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -54,7 +55,38 @@
               <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Submit Post</button>
             </div>
         </form>
-        <p ng-bind="vm.newPost"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SIGNUP MODAL -->
+<div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Sign Up</h4>
+      </div>
+      <div class="modal-body">
+        <form ng-submit="signUp(newUser)">
+              <label class="center-block" for="email">Email</label>
+              <input class="form-control" type="text" name="email" ng-model="newUser.email"></input>
+
+              <label class="center-block" for="username">Username</label>
+              <input class="form-control" type="text" name="username" ng-model="newUser.username"></input>
+
+              <label class="center-block" for="password">Password</label>
+              <input class="form-control" type="password" name="password" ng-model="newUser.password"></input>
+
+              <label class="center-block" for="confirmPassword">Confirm Password</label>
+              <input class="form-control" type="password" name="confirmPassword" ng-model="newUser.confirmPassword"></input>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#signupModal">Sign Up</button>
+            </div>
+        </form>
       </div>
     </div>
   </div>

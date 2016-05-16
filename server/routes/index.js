@@ -2,6 +2,18 @@ var express = require('express');
 var router = express.Router();
 var knex = require('knex')(require('../knexfile')[process.env.NODE_ENV || 'development']);
 
+router.post('/api/v1/users', function(req, res, next) {
+  var data = {
+    email: req.body.email,
+    username: req.body.username,
+    password: req.body.password
+  }
+  knex('users').insert(data).returning('*').then(function(users) {
+    console.log(users);
+    res.json(users[0]);
+  })
+})
+
 router.get('/api/v1/posts', function(req, res, next) {
   var results = {};
   knex('posts')

@@ -3,7 +3,8 @@
 
   var dependencies = [
     'ui.router',
-    'app.posts'
+    'app.posts',
+    'app.users'
   ];
 
   angular.module('app', dependencies)
