@@ -13,6 +13,7 @@
       return {
         add: addPost,
         list: listPosts,
+        comments: listComments,
         upVote: upVote,
         downVote: downVote
       }
@@ -26,6 +27,11 @@
         })
       }
 
+      function listComments() {
+        var factory = this;
+        return $http.get
+      }
+
       function addPost(newPost) {
         return $http.post('http://localhost:3000/api/v1/posts', {
           title: newPost.title,
@@ -34,8 +40,7 @@
           description: newPost.description
         })
         .then(function(response){
-          posts.push(response.data);
-          vm.posts.push(response.data);
+          return response.data
         })
       }
 
