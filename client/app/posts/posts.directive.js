@@ -21,7 +21,7 @@
     vm.addPost = addPost;
     vm.upVote = upVote;
     vm.downVote = downVote;
-    vm.comments = false;
+    vm.showComments = showComments;
 
     activate();
 
@@ -48,6 +48,19 @@
     function downVote(post) {
       postsService.downVote(post);
     }
-  }
 
+    function showComments(post_id) {
+      for (var i=0; i < vm.posts.length; i++) {
+        if (vm.posts[i].id === post_id) {
+          if (vm.posts[i].showComments === false) {
+            vm.posts[i].showComments = true;
+          } else {
+            vm.posts[i].showComments = false;
+          }
+
+        }
+      }
+    }
+
+  }
 }());

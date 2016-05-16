@@ -14,6 +14,7 @@ router.get('/api/v1/posts', function(req, res, next) {
       results.comments = comments;
       for (var i = 0; i < results.posts.length; i++) {
         results.posts[i].comments = [];
+        results.posts[i].showComments = false;
         for (var j = 0; j < results.comments.length; j++) {
           if (results.posts[i].id === results.comments[j].post_id) {
             results.posts[i].comments.push(results.comments[j])

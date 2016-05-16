@@ -5,8 +5,8 @@ exports.seed = function(knex, Promise) {
     knex('comments').del(),
 
     // Inserts seed entries
-    knex('comments').insert({post_id: 1, user_id: 1, comment: "Super cool!"}),
-    knex('comments').insert({post_id: 1, user_id: 2, comment: "No. This sucks."}),
-    knex('comments').insert({post_id: 2, user_id: 1, comment: "Oh my goddddddd"})
+    knex('comments').insert({post_id: 1, username: "mikeferger", comment: "Super cool!"}),
+    knex('comments').insert({post_id: 1, username: "daniel", comment: "No. This sucks."}),
+    knex('comments').insert({post_id: 2, username: "madeline", comment: "Oh my goddddddd"})
   );
 };

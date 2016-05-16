@@ -26,15 +26,6 @@
         })
       }
 
-      // function listComments() {
-      //   var factory = this;
-      //   return $http.get('http://localhost:3000/api/v1/posts/comments')
-      //   .then(function(response) {
-      //     factory.comments = response.data;
-      //     return factory.comments;
-      //   })
-      // }
-
       function addPost(newPost) {
         return $http.post('http://localhost:3000/api/v1/posts', {
           title: newPost.title,
