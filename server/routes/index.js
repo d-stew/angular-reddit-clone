@@ -40,6 +40,18 @@ router.post('/api/v1/posts', function(req, res, next) {
   })
 });
 
+router.post('/api/v1/posts/comments', function(req, res, next) {
+  var data = {
+    post_id: req.body.post_id,
+    username: req.body.username,
+    comment: req.body.comment
+  }
+  knex('comments').insert(data).returning('*').then(function(comments){
+    console.log(comments);
+    res.json(comments[0]);
+  })
+});
+
 router.post('/api/v1/posts/upvote', function(req, res, next) {
   knex('posts')
   .where({id: req.body.id})

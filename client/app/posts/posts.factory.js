@@ -12,6 +12,7 @@
 
       return {
         add: addPost,
+        comment: addComment,
         list: listPosts,
         upVote: upVote,
         downVote: downVote
@@ -35,6 +36,14 @@
         })
         .then(function(response){
           return response.data
+        })
+      }
+
+      function addComment(newComment) {
+        return $http.post('http://localhost:3000/api/v1/posts/comments', {
+          post_id: newComment.post_id,
+          username: newComment.username,
+          comment: newComment.comment
         })
       }
 

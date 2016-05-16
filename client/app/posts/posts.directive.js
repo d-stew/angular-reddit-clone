@@ -19,6 +19,7 @@
     var vm = this;
     vm.posts = [];
     vm.addPost = addPost;
+    vm.addComment = addComment;
     vm.upVote = upVote;
     vm.downVote = downVote;
     vm.showComments = showComments;
@@ -32,13 +33,16 @@
       })
     }
 
-
     function addPost() {
       postsService.add();
       // .then(function(post){
       //   vm.posts[vm.posts.length+1] = post;
       //   console.log("New posts:" + vm.posts);
       // })
+    }
+
+    function addComment(newComment) {
+      postsService.comment(newComment);
     }
 
     function upVote(post) {

@@ -22,13 +22,41 @@
       </ng-pluralize>
     </a> |
     <span class="glyphicon glyphicon-pencil"></span>
-    <a>Add Comment</a>
+    <a href="#" data-toggle="modal" data-target="#commentModal">Add Comment</a>
   </p>
-  <div ng-show="post.showComments">
+  <div class="comments" ng-show="post.showComments">
     <p ng-repeat="comment in post.comments">
-      <b ng-bind="comment.user_id"></b>:
+      <b class="username" ng-bind="comment.username"></b> :
       <span ng-bind="comment.comment"></span>
     </p>
+  </div>
+
+  <div class="modal fade" id="commentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">New Comment</h4>
+        </div>
+        <div class="modal-body">
+          <form ng-submit="vm.addComment(newComment)">
+            <label for="post_id">Post ID</label>
+            <input class="form-control" type="text" name="post_id" ng-model="newComment.post_id">
+
+            <label for="username">Username</label>
+            <input class="form-control" type="text" name="username" ng-model="newComment.username">
+
+            <label for="comment">Comment</label>
+            <input class="form-control" type="text" name="comment" ng-model="newComment.comment">
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#commentModal">Submit Comment</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
 
 </div>
