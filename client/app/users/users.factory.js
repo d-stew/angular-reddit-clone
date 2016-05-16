@@ -5,9 +5,9 @@
     .factory('usersService', factory);
     // Factories return services
 
-    factory.$inject = ['$http'];
+    factory.$inject = ['$http', '$window', '$location'];
 
-    function factory($http) {
+    function factory($http, $window, $location) {
       var users = [];
 
       return {
@@ -23,9 +23,14 @@
           password: newUser.password,
           confirmPassword: newUser.confirmPassword
         })
+        // .then(function (response) {
+        //   $window.localStorage.setItem('token', response.data.token)
+        //   $location.path('/')
+        // })
         .then(function(response) {
-          factory.users = response.data;
-          return factory.users;
+          console.log(response);
+          // factory.users = response.data;
+          // return factory.users;
         })
       }
 

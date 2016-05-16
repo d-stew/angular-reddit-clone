@@ -1,21 +1,63 @@
-var express = require('express');
-var router = express.Router();
-var knex = require('knex')(require('../knexfile')[process.env.NODE_ENV || 'development']);
+require('dotenv').config();
+const express = require('express');
+const router = express.Router();
+const knex = require('../db')
+const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken');
 
 router.post('/api/v1/users', function(req, res, next) {
-  var data = {
-    email: req.body.email,
-    username: req.body.username,
-    password: req.body.password
+  const errors = [];
+
+  if (!req.body.email || !req.body.email.trim()) errors.push("Email can't be blank");
+  if (!req.body.username || !req.body.username.trim()) errors.push("Name can't be blank");
+  if (!req.body.password || !req.body.password.trim()) errors.push("Password can't be blank");
+  if (req.body.password !== req.body.confirmPassword) errors.push("Passwords do not match")
+
+  if (errors.length) {
+    res.status(422).json({
+      errors: errors
+    })
+  } else {
+    knex('users')
+    .whereRaw('lower(email) = ?', req.body.email.toLowerCase())
+    .count()
+    .first()
+    .then(function (result) {
+      if (result.count === "0") {
+        const saltRounds = 4;
+        const passwordHash = bcrypt.hashSync(req.body.password, saltRounds);
+
+        knex('users')
+        .insert({
+          email: req.body.email,
+          username: req.body.username,
+          password: passwordHash
+        })
+        .returning('*')
+        .then(function (users) {
+          const user = users[0];
+          const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET);
+
+          res.json({
+            id: user.id,
+            email: user.email,
+            username: user.username,
+            token: token
+          })
+        })
+
+      } else {
+        res.status(422).json({
+          errors: ["Email has already been taken"]
+        })
+      }
+
+    })
   }
-  knex('users').insert(data).returning('*').then(function(users) {
-    console.log(users);
-    res.json(users[0]);
-  })
 })
 
 router.get('/api/v1/posts', function(req, res, next) {
-  var results = {};
+  const results = {};
   knex('posts')
   .then(function(posts){
     results.posts = posts;
@@ -40,7 +82,7 @@ router.get('/api/v1/posts', function(req, res, next) {
 });
 
 router.post('/api/v1/posts', function(req, res, next) {
-  var data = {
+  const data = {
     title: req.body.title,
     author: req.body.author,
     image: req.body.image,
@@ -53,7 +95,7 @@ router.post('/api/v1/posts', function(req, res, next) {
 });
 
 router.post('/api/v1/posts/comments', function(req, res, next) {
-  var data = {
+  const data = {
     post_id: req.body.post_id,
     username: req.body.username,
     comment: req.body.comment
