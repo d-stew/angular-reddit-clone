@@ -13,7 +13,6 @@
       return {
         add: addPost,
         list: listPosts,
-        comments: listComments,
         upVote: upVote,
         downVote: downVote
       }
@@ -27,13 +26,14 @@
         })
       }
 
-      function listComments() {
-        var factory = this;
-        return $http.get('http://localhost:3000/api/v1/posts/comments')
-        .then(function(response) {
-          factory.comments = response.data;
-        })
-      }
+      // function listComments() {
+      //   var factory = this;
+      //   return $http.get('http://localhost:3000/api/v1/posts/comments')
+      //   .then(function(response) {
+      //     factory.comments = response.data;
+      //     return factory.comments;
+      //   })
+      // }
 
       function addPost(newPost) {
         return $http.post('http://localhost:3000/api/v1/posts', {

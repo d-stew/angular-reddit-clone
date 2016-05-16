@@ -21,17 +21,17 @@
     vm.addPost = addPost;
     vm.upVote = upVote;
     vm.downVote = downVote;
+    vm.comments = false;
 
     activate();
 
     function activate() {
       postsService.list().then(function(posts){
-        vm.posts = posts;
-      })
-      postsService.comments().then(function(comments) {
-        vm.comments = comments;
+        vm.posts = posts.posts;
+        console.log(vm.posts);
       })
     }
+
 
     function addPost() {
       postsService.add();

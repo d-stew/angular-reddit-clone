@@ -3,18 +3,26 @@ var router = express.Router();
 var knex = require('knex')(require('../knexfile')[process.env.NODE_ENV || 'development']);
 
 router.get('/api/v1/posts', function(req, res, next) {
+  var results = {};
   knex('posts')
-  .then(function (posts) {
-    console.log(posts);
-    res.json(posts);
+  .then(function(posts){
+    results.posts = posts;
   })
-});
-
-router.get('/api/v1/posts/comments', function(req, res, next){
-  knex('comments')
-  .then(function (comments) {
-    console.log(comments);
-    res.json(comments);
+  .then(function () {
+    knex('comments')
+    .then(function(comments) {
+      results.comments = comments;
+      for (var i = 0; i < results.posts.length; i++) {
+        results.posts[i].comments = [];
+        for (var j = 0; j < results.comments.length; j++) {
+          if (results.posts[i].id === results.comments[j].post_id) {
+            results.posts[i].comments.push(results.comments[j])
+          }
+        }
+      }
+      delete results.comments;
+      res.json(results);
+    })
   })
 });
 
