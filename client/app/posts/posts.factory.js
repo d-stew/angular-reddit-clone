@@ -52,10 +52,6 @@
           id: post.id,
           score: post.score++
         })
-        // .then(function(response){
-        //   posts.push(response.data);
-        //   console.log(posts);
-        // })
       }
 
       function downVote(post) {
