@@ -29,7 +29,10 @@
 
       function listComments() {
         var factory = this;
-        return $http.get
+        return $http.get('http://localhost:3000/api/v1/posts/comments')
+        .then(function(response) {
+          factory.comments = response.data;
+        })
       }
 
       function addPost(newPost) {

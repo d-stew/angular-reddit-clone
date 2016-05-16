@@ -3,9 +3,18 @@ var router = express.Router();
 var knex = require('knex')(require('../knexfile')[process.env.NODE_ENV || 'development']);
 
 router.get('/api/v1/posts', function(req, res, next) {
-  knex('posts').then(function (posts) {
+  knex('posts')
+  .then(function (posts) {
     console.log(posts);
     res.json(posts);
+  })
+});
+
+router.get('/api/v1/posts/comments', function(req, res, next){
+  knex('comments')
+  .then(function (comments) {
+    console.log(comments);
+    res.json(comments);
   })
 });
 
