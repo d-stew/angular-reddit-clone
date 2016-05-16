@@ -23,15 +23,14 @@
           password: newUser.password,
           confirmPassword: newUser.confirmPassword
         })
-        // .then(function (response) {
-        //   $window.localStorage.setItem('token', response.data.token)
-        //   $location.path('/')
-        // })
-        .then(function(response) {
-          console.log(response);
-          // factory.users = response.data;
-          // return factory.users;
+        .then(function (response) {
+          $window.localStorage.setItem('token', response.data.token)
+          $location.path('/')
         })
+        // .then(function(response) {
+        //   // factory.users = response.data;
+        //   // return factory.users;
+        // })
       }
 
     }
