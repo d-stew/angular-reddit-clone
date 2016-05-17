@@ -16,9 +16,10 @@
 
   function controller($http, $scope, postsService, usersService) {
       var vm = this;
-      
+
       $scope.addPost = addPost;
       $scope.signUp = signUp;
+      $scope.login = login;
       $scope.sortBy = sortBy;
 
       $scope.nav = {};
@@ -35,6 +36,14 @@
 
       function signUp(newUser) {
         usersService.add(newUser);
+      }
+
+      function login(user) {
+        usersService.login(user)
+        .then(function(response) {
+          console.log(response);
+          return $scope.user = response
+        });
       }
 
       function sortBy(sorter) {

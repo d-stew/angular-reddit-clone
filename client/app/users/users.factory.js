@@ -11,7 +11,8 @@
       var users = [];
 
       return {
-        add: addUser
+        add: addUser,
+        login: login
       }
 
       function addUser(newUser) {
@@ -25,11 +26,20 @@
         .then(function (response) {
           $window.localStorage.setItem('token', response.data.token)
           $location.path('/')
+          return response.data
         })
         // .then(function(response) {
         //   // factory.users = response.data;
         //   // return factory.users;
         // })
+      }
+
+      function login(user) {
+        return $http.post('http://localhost:3000/api/v1/users/login', user)
+        .then(function (response) {
+          $window.localStorage.setItem('token', response.data.token);
+          $location.path('/');
+        })
       }
 
     }
