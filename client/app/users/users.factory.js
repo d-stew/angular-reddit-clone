@@ -15,7 +15,6 @@
       }
 
       function addUser(newUser) {
-        console.log("Fired in factory");
         var factory = this;
         return $http.post('http://localhost:3000/api/v1/users', {
           email: newUser.email,
