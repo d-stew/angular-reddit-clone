@@ -41,7 +41,6 @@
       function login(user) {
         usersService.login(user)
         .then(function(response) {
-          console.log(response);
           return $scope.user = response
         });
       }

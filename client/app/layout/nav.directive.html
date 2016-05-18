@@ -4,7 +4,6 @@
     <div class="navbar-header">
       <a class="navbar-brand" href="#">Reddit Clone</a>
     </div>
-{{user.email}}
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
@@ -26,6 +25,8 @@
         <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"></span> Submit Post</a></li>
         <li><a ng-hide="user" href="#" data-toggle="modal" data-target="#signupModal">Sign Up</a></li>
         <li><a ng-hide="user" href="#" data-toggle="modal" data-target="#loginModal">Log In</a></li>
+        <li ng-show="user">Hello, {{ user.username }}!</li>
+        <li><a ng-show="user" href="#">Log out</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

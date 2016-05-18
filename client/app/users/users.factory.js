@@ -26,7 +26,7 @@
         .then(function (response) {
           $window.localStorage.setItem('token', response.data.token)
           $location.path('/')
-          return response.data
+          return response.data;
         })
         // .then(function(response) {
         //   // factory.users = response.data;
@@ -39,6 +39,7 @@
         .then(function (response) {
           $window.localStorage.setItem('token', response.data.token);
           $location.path('/');
+          return response.data;
         })
       }
 
