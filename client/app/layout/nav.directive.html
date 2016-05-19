@@ -23,10 +23,10 @@
         </li>
 
         <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"></span> Submit Post</a></li>
-        <li><a ng-hide="user" href="#" data-toggle="modal" data-target="#signupModal">Sign Up</a></li>
-        <li><a ng-hide="user" href="#" data-toggle="modal" data-target="#loginModal">Log In</a></li>
-        <li ng-show="user">Hello, {{ user.username }}!</li>
-        <li><a ng-show="user" href="#">Log out</a></li>
+        <li><a ng-hide="currentUser" href="#" data-toggle="modal" data-target="#signupModal">Sign Up</a></li>
+        <li><a ng-hide="currentUser" href="#" data-toggle="modal" data-target="#loginModal">Log In</a></li>
+        <li><a ng-show="currentUser" href="#">Hello, {{ currentUser.username }}!</a></li>
+        <li><a ng-show="currentUser" href="#">Log out</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -113,7 +113,7 @@
 
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">Sign Up</button>
+              <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">Log In</button>
             </div>
         </form>
       </div>

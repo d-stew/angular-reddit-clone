@@ -6,16 +6,16 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken');
 
 router.post('/api/v1/users/login', function (req, res, next) {
-  // const errors = [];
-  //
-  // if (!req.body.email || !req.body.email.trim()) errors.push("Please enter an email");
-  // // if (!req.body.password || !req.body.password.trim()) errors.push("Please enter a password");
-  //
-  // if (errors.length) {
-  //   res.status(422).json({
-  //     errors: errors
-  //   })
-  // } else {
+  const errors = [];
+
+  if (!req.body.email || !req.body.email.trim()) errors.push("Please enter an email");
+  if (!req.body.password || !req.body.password.trim()) errors.push("Please enter a password");
+
+  if (errors.length) {
+    res.status(422).json({
+      errors: errors
+    })
+  } else {
     return knex('users')
     .whereRaw('lower(email) = ?', req.body.email.toLowerCase())
     .first()
@@ -29,7 +29,7 @@ router.post('/api/v1/users/login', function (req, res, next) {
           res.json({
             id: user.id,
             email: user.email,
-            name: user.name,
+            username: user.username,
             token: token
           })
         }
@@ -39,7 +39,7 @@ router.post('/api/v1/users/login', function (req, res, next) {
         })
       }
     })
-  // }
+  }
 
 })
 
