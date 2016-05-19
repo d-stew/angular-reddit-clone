@@ -6,7 +6,6 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken');
 
 router.post('/api/v1/users/login', function (req, res, next) {
-  console.log('hit server B', req.body);
   // const errors = [];
   //
   // if (!req.body.email || !req.body.email.trim()) errors.push("Please enter an email");
