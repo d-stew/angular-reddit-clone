@@ -133,13 +133,14 @@ router.post('/api/v1/posts', function(req, res, next) {
 });
 
 router.post('/api/v1/posts/comments', function(req, res, next) {
+  // console.log(req.body);
   const data = {
     post_id: req.body.post_id,
     username: req.body.username,
     comment: req.body.comment
   }
   knex('comments').insert(data).returning('*').then(function(comments){
-    console.log(comments);
+    // console.log(comments);
     res.json(comments[0]);
   })
 });

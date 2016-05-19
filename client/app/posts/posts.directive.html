@@ -39,10 +39,9 @@
           <h4 class="modal-title" id="myModalLabel">New Comment</h4>
         </div>
         <div class="modal-body">
-          <form ng-submit="vm.addComment(newComment)">
-            {{ post.id | json }}
-            <label for="post_id">Post ID</label>
-            <input class="form-control" type="text" name="post_id" ng-model="newComment.post_id">
+          <form ng-submit="vm.addComment(newComment, post.id)">
+            <label for="post_id">Post</label>
+            <input disabled class="form-control" type="text" name="post_id" placeholder="{{post.title}}">
 
             <label for="username">Username</label>
             <input class="form-control" type="text" name="username" ng-model="newComment.username">
@@ -52,7 +51,7 @@
 
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#commentModal">Submit Comment</button>
+              <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#{{'commentModal' + post.id }}">Submit Comment</button>
             </div>
           </form>
         </div>

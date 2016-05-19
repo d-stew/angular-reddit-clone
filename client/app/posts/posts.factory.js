@@ -39,11 +39,14 @@
         })
       }
 
-      function addComment(newComment) {
+      function addComment(newComment, id) {
         return $http.post('http://localhost:3000/api/v1/posts/comments', {
-          post_id: newComment.post_id,
+          post_id: id,
           username: newComment.username,
           comment: newComment.comment
+        })
+        .then(function(response){
+          return response.data
         })
       }
 

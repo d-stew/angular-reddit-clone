@@ -34,15 +34,14 @@
     }
 
     function addPost() {
-      postsService.add();
-      // .then(function(post){
-      //   vm.posts[vm.posts.length+1] = post;
-      //   console.log("New posts:" + vm.posts);
-      // })
+      postsService.add()
+      .then(function(post){
+        vm.posts.push(post);
+      })
     }
 
-    function addComment(newComment) {
-      postsService.comment(newComment);
+    function addComment(newComment, id) {
+      postsService.comment(newComment, id);
     }
 
     function upVote(post) {
