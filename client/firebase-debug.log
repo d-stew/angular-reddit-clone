@@ -6,3 +6,11 @@
 [debug] ----------------------------------------------------------------------
 [debug] 
 [info] Listening at http://localhost:5000
+[debug] ----------------------------------------------------------------------
+[debug] Command:      /usr/local/Cellar/node/5.5.0/bin/node /usr/local/bin/firebase serve
+[debug] Platform:     darwin
+[debug] Node Version: v5.5.0
+[debug] Time:         Fri May 20 2016 10:03:11 GMT-0600 (MDT)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[info] Listening at http://localhost:5000
