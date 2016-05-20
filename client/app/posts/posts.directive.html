@@ -39,12 +39,9 @@
           <h4 class="modal-title" id="myModalLabel">New Comment</h4>
         </div>
         <div class="modal-body">
-          <form ng-submit="vm.addComment(newComment, post.id)">
+          <form ng-submit="vm.addComment(newComment, post.id, currentUser.username)">
             <label for="post_id">Post</label>
             <input disabled class="form-control" type="text" name="post_id" placeholder="{{post.title}}">
-
-            <label for="username">Username</label>
-            <input class="form-control" type="text" name="username" ng-model="newComment.username">
 
             <label for="comment">Comment</label>
             <input class="form-control" type="text" name="comment" ng-model="newComment.comment">

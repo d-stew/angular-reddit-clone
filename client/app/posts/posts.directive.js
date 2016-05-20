@@ -13,9 +13,9 @@
     }
   }
 
-  controller.$inject = ['$http', 'postsService'];
+  controller.$inject = ['$http', 'postsService', 'usersService'];
 
-  function controller($http, postsService) {
+  function controller($http, postsService, usersService) {
     var vm = this;
     vm.posts = [];
     vm.addPost = addPost;
@@ -40,8 +40,9 @@
       })
     }
 
-    function addComment(newComment, id) {
-      postsService.comment(newComment, id);
+    function addComment(newComment, post_id, username) {
+      console.log(currentUser);
+      postsService.comment(newComment, post_id, username);
     }
 
     function upVote(post) {

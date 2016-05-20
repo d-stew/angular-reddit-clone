@@ -1,3 +1,8 @@
+.nav-right {
+  float: right !important;
+}
+
+
 div.post {
   background-color: rgb(222, 222, 222);
   border-radius: 8px;
