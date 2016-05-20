@@ -6,6 +6,7 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken');
 
 router.get('/me', function (req, res, next) {
+  console.log('HIT IN ROUTER');
   if (req.headers.authorization) {
     const token = req.headers.authorization.split(' ')[1];
 
