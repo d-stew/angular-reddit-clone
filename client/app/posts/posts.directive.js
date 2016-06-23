@@ -41,7 +41,6 @@
     }
 
     function addComment(newComment, post_id, username) {
-      console.log(currentUser);
       postsService.comment(newComment, post_id, username);
     }
 

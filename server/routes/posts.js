@@ -44,7 +44,6 @@ router.post('/', function(req, res, next) {
 });
 
 router.post('/comments', function(req, res, next) {
-  console.log(req.body);
   const data = {
     post_id: req.body.post_id,
     username: req.body.username,

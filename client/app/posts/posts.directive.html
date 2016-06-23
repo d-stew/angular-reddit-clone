@@ -9,7 +9,7 @@
   <p class='description'>{{ post.description }}</p>
   <p>
     <span class="glyphicon glyphicon-calendar"></span>
-    {{ post.date | date }}  |
+    <time am-time-ago="post.date"></time> |
     <span class="glyphicon glyphicon-comment"></span>
     <a ng-click="vm.showComments(post.id)">
       {{ post.comments.length }}

@@ -1,6 +1,6 @@
 (function() {
   'use strict';
 
-  angular.module('app.posts', []);
+  angular.module('app.posts', ['angularMoment']);
 
 }());
