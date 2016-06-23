@@ -1,3 +1,7 @@
+body {
+  font-family: 'Quicksand', sans-serif;
+}
+
 .nav-right {
   float: right !important;
 }
@@ -9,6 +13,7 @@ div.post {
   margin: auto;
   margin: 2% 2%;
   padding: 2% 2% 3% 2%;
+  min-height: 250px;
 }
 
 div.comments {
@@ -20,14 +25,14 @@ div.comments {
 }
 
 img.post {
-  height: 200px;
+  max-height: 200px;
   width: 325px;
   float: left;
   margin-right: 1%;
 }
 
 p.author {
-  text-align: right;
+  text-align: left;
 }
 
 .positive {

@@ -16,7 +16,7 @@
 
   function controller($http, $scope, postsService, usersService, currentUser) {
       var vm = this;
-      
+
       $scope.addPost = addPost;
       $scope.signUp = signUp;
       $scope.login = login;

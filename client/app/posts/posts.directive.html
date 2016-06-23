@@ -1,11 +1,11 @@
 <div ng-repeat="post in vm.posts | orderBy : nav.sorter : nav.reverse | filter : search" class='post'>
   <img ng-src="{{ post.image }}" class='post'>
-  <h3 class='title'>{{ post.title }} |
+  <h3 class='title'>{{ post.title | uppercase }} |
     <span class="glyphicon glyphicon-arrow-up" ng-click="vm.upVote(post)"></span>
     <span class="glyphicon glyphicon-arrow-down" ng-click="vm.downVote(post)"></span>
     <span ng-bind="post.score" ng-class="{positive: post.score > 0, negative: post.score < 0}"></span>
   </h3>
-  <p class='author'>By {{ post.author }}</p>
+  <p class='author'>By <b>{{ post.author }}</b></p>
   <p class='description'>{{ post.description }}</p>
   <p>
     <span class="glyphicon glyphicon-calendar"></span>
