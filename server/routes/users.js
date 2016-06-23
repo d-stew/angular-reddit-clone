@@ -17,7 +17,7 @@ router.get('/me', function (req, res, next) {
     // payload is {id: 56}
     knex('users').where({id: payload.id}).first().then(function (user) {
       if (user) {
-        res.json({id: user.id, name: user.name})
+        res.json({id: user.id, username: user.username})
       } else {
         res.status(403).json({
           error: "Invalid ID"

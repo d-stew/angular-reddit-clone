@@ -1,14 +1,26 @@
 body {
   font-family: 'Quicksand', sans-serif;
+  background-color: rgba(110, 110, 110, 0.96);
+  padding-top: 2%;
 }
 
+
+a.navbar-brand {
+  font-family: 'Pacifico', cursive;
+  font-size: 36px;
+  color: rgb(25, 23, 46) !important;
+}
 .nav-right {
   float: right !important;
+}
+div.navbox {
+  padding-top: 1%;
+  padding-bottom: 1%;
 }
 
 
 div.post {
-  background-color: rgb(222, 222, 222);
+  background-color: rgba(221, 215, 215, 0.77);
   border-radius: 8px;
   margin: auto;
   margin: 2% 2%;
@@ -35,10 +47,10 @@ p.author {
   text-align: left;
 }
 
+/**/
 .positive {
   color: green;
 }
-
 .negative {
   color: red;
 }

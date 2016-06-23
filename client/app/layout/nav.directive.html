@@ -1,8 +1,8 @@
 <!-- NAVBAR -->
-<navbar>
-  <div class="container-fluid">
+<navbar class="navbar navbar-default navbar-fixed-top">
+  <div class="container navbox">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#"><b>GO Colorado</b></a>
+      <a class="navbar-brand" href="#"><b>gogoColorado</b></a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -25,8 +25,8 @@
         <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"></span> SUBMIT POST</a></li>
         <li><a ng-hide="currentUser" href="#" data-toggle="modal" data-target="#signupModal">SIGN UP</a></li>
         <li><a ng-hide="currentUser" href="#" data-toggle="modal" data-target="#loginModal">LOG IN</a></li>
-        <li><a ng-show="currentUser" href="#">Hello, {{ currentUser.username }}!</a></li>
-        <li><a ng-show="currentUser" href="#">Log out</a></li>
+        <li><a ng-show="currentUser" href="#">HELLO, {{ currentUser.username | uppercase }}!</a></li>
+        <li><a ng-show="currentUser" href="#">LOG OUT</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

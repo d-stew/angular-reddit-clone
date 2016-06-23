@@ -38,6 +38,9 @@
                 return null;
               })
           }
+        },
+        controller: function($scope, currentUser){
+          $scope.currentUser = currentUser;
         }
       });
   $urlRouterProvider.otherwise('/');
@@ -49,7 +52,6 @@
       // if the next route requires login
       // and we don't have a token
       // then redirect to the homepage
-
       if (next.$$route.requiresLogin && !localStorage.getItem('token')) {
         $location.path('/');
       }
@@ -63,7 +65,6 @@
           if (localStorage.getItem('token')) {
             config.headers.Authorization = 'Bearer ' + localStorage.getItem('token');
           }
-
           return config;
         },
 
